@@ -1,0 +1,53 @@
+1.
+Sorry I don't know how to do #1
+
+2.
+student_data = ("John", 18, "Physics", "A")
+
+print(student_data[0])
+print(student_data[1])
+data_list = list(student_data)
+data_list[1] = 19
+student_data = tuple(data_list)
+
+3.
+fruits = ["apple","banana","cherry","date","fig","grape"]
+
+fruits.append("kiwi")
+fruits.insert(2, "orange")
+fruits.remove("banana")
+fruits.sort()
+cherries = fruits.count("cherry")
+
+print(cherries)
+
+3.
+students_scores = {
+    "Alice": 85,
+    "Bob": 78,
+    "Clara": 92,
+    "David": 88,
+    "Eva": 74
+}
+
+students_scores["Frank"] = 90
+students_scores["Eva"] = 80
+print(students_scores["Clara"])
+del students_scores["Bob"]
+average_score = students_scores["Alice"] + students_scores["Frank"] + students_scores["Clara"] + students_scores["David"] + students_scores["Eva"] / 5
+print(average_score)
+
+4.
+sentance = "Python programming is fun and powerful."
+
+sentance = sentance.upper()
+letters = sentance.count()              # I don't know how to do this one
+sentance.replace[22:25] = "exciting"     # Or this
+word = sentance[30:38]
+
+5.
+sentence_list = ["Python", "is", "a", "fun", "language", "to", "learn"]
+
+sentence_list.reverse()
+new_sentence = sentence_list.join()
+print(new_sentence.len())
