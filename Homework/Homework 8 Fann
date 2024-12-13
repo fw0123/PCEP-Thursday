@@ -1,0 +1,135 @@
+1.1
+# The purpose of 'try' and 'except' blocks in Python is to identify certain exceptions and what can or will happen if they occur.
+# The difference between using 'else' and 'finally' in exception handling is that the 'else' block will only occur if the 'try' block is passed without raising any exceptions, as while the 'finally' block will innitiate either way.
+# ZeroDivisionError - ex. number = 3 / 0
+# NameError - ex. num = 4 + 4
+#                 print(num1)
+# KeyError - ex. names = {"John" : 21, "Abby" : 30, "Sam" : 25}
+#                print(names["Sydney"])
+
+1.2
+# The exception that occurred was the ZeroDivisonError.
+# The line of code that caused this exception was line 5.
+# To fix this error, I would change the divison by 0 to a mathematically defined divison process, such as divison by 1, 2, 3, etc.
+
+2.1
+filename = input("Enter a file name: ")
+
+try:
+    read = open(filename, "r")
+    print(read.read())
+except FileNotFoundError:
+    print("!!! NONEXISTANT FILE !!!")
+finally:
+    print("Operation Complete")
+
+2.2
+class NegativeNumberError(Exception):
+    pass
+
+try:
+    number = int(input("Enter an integer number that is non-negative: "))
+    if number < 0:
+        raise NegativeNumberError
+except NegativeNumberError:
+    print("NEGATIVE NUMBERS ARE NOT ALLOWED.")
+
+2.3
+try:
+    num1 = int(input("Enter a number: "))
+    num2 = int(input("Enter a second number: "))
+    op = str(input("Enter an operation: "))
+    if op  == "+":
+        print(num1 + num2)
+    elif op == "-":
+        print(num1 - num2)
+    elif op == "*":
+        print(num1 * num2)
+    elif op == "/":
+        print(num1 / num2)
+    else:
+        print("!!! UNDEFINED OPERATOR !!!")
+except ZeroDivisionError:
+    print("!!! DIVISON BY ZERO IS UNDEFINED !!!")
+except ValueError:
+    print("!!! UNAVAILABLE VALUES !!!")
+
+3.1
+import math
+
+try:
+    number = int(input("Enter a non-negative number: "))
+    if number < 0:
+        raise ValueError
+    else:
+        print(math.sqrt(number))
+except TypeError:
+    print("!!! NUMBER MUST BE AN INTEGER !!!")
+except ValueError:
+    print("!!! NUMBER CANNOT BE A NEGATIVE !!!")
+
+3.2
+try:
+    num1 = int(input("Enter a number: "))
+    num2 = int(input("Enter a number to divide by: "))
+    try: 
+        print(num1 / num2)
+    except ZeroDivisionError:
+        print("!!! NUMBER IS UNABLE TO BE DIVIDED BY 0 !!!")
+    else:
+        print("Nested try block executed succesfully")
+except ValueError:
+    print("!!! MUST BE A NUMERICAL VALUE(S) !!!")
+
+4.1
+balance = 500
+
+def check():
+    print(balance)
+    print(atm())
+
+def withdraw(withdrawal):
+    try: 
+        withdrawal = int(input("How much would you like to withdraw?: "))
+        if int(withdrawal.isnumeric()) != True:
+            raise ValueError
+        elif withdrawal < balance:
+            print("!!! INSUFFICIENT FUNDS !!!")
+        else:
+            balance = balance - withdrawal
+            print(f"New Balance = {balance}")
+    except ValueError:
+        print("!!! INCORRECT VALUE !!!")
+    print(atm())
+
+def give(deposit):
+    try:
+        deposit = int(input("How much would you like to deposit?: "))
+        if int(deposit.isnumerical()) != True:
+            raise ValueError
+        else:
+            balance = balance + deposit
+            print(f"New Balance = {balance}")
+    except ValueError:
+        print("!!! INCORRECT VALUE !!!")
+    print(atm)
+
+def atm():
+    print("Welcome to the ATM!")
+    print("1. Check Balance")
+    print("2. Withdraw Money")
+    print("3. Deposit Money")
+    print("4. Exit")
+    option = int(input("Choose an Option: "))
+    if option != 1 and option != 2 and option != 3 and option != 4:
+        print("!!! NOT AN AVAILABLE OPTION !!!")
+    elif option == 1:
+        print(check())
+    elif option == 2:
+        print(withdraw())
+    elif option == 3:
+        print(give())
+    elif option == 4:
+        pass
+
+print(atm())
